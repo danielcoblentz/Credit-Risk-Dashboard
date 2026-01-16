@@ -1,6 +1,5 @@
 package com.finance.risk.controller;
 
-import com.finance.risk.dto.LoanRequest;
 import com.finance.risk.model.LoanApplication;
 import com.finance.risk.repository.LoanRepository;
 import com.finance.risk.service.RiskCalculatorService;
