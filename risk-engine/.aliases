@@ -1,0 +1,12 @@
+#Git aliases
+alias gs='git status'
+alias gp='git push'
+alias d='docker'
+
+#Git commit function (allows: gc "commit message")
+gc() {
+  git commit -m "$1"
+}
+
+#Terminal
+alias c='clear'

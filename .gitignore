@@ -1,0 +1,98 @@
+# Environment files
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+.env*.local
+*.env
+
+# Claude/AI files
+.claude
+.claude/
+claude_files/
+.anthropic/
+
+# GitHub Copilot
+.copilot/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+env/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn/
+
+# IDE/Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+*.sublime-workspace
+*.sublime-project
+
+# OS files
+.DS_Store
+.DS_Store?
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Build outputs
+dist/
+build/
+out/
+*.egg-info/
+.eggs/
+
+# Coverage/Testing
+coverage/
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+nosetests.xml
+coverage.xml
+
+# Secrets/Keys
+*.pem
+*.key
+secrets/
+.secrets
+credentials.json
+service-account.json
+
+# Database
+*.sqlite
+*.sqlite3
+*.db
+
+# Misc
+*.bak
+*.tmp
+*.temp
+.cache/

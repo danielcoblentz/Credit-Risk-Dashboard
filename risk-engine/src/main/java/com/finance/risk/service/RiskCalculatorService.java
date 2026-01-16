@@ -1,27 +1,37 @@
 package com.finance.risk.service;
+
 import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class RiskCalculatorService {
-    private static String gradeScore(float dti) {
-        if (dti >= 0.40f) return "HIGH";
-        if (dti <= 0.20f) return "LOW";
+
+    private static String gradeScore(double dti) {
+        if (dti >= 0.40) return "HIGH";
+        if (dti <= 0.20) return "LOW";
         return "MEDIUM";
     }
 
-    // clac debt to income ratio
-    public static String calculateFinalRisk (float monthlyDebt, float monthlyIncome) {
+    public String calculateFinalRisk(double monthlyDebt, double monthlyIncome) {
         if (monthlyIncome <= 0) return "INCOMPLETE DATA";
-       
-        float dti = getDebtToIncomeRatio(monthlyDebt, monthlyIncome);
+
+        double dti = getDebtToIncomeRatio(monthlyDebt, monthlyIncome);
 
         return gradeScore(dti);
-    };
-    
-    private static float getDebtToIncomeRatio (float loanAmt, float CollateralVal) {
-       return (loanAmt / CollateralVal);
-    };
+    }
 
+    private static double getDebtToIncomeRatio(double monthlyDebt, double monthlyIncome) {
+        return monthlyDebt / monthlyIncome;
+    }
 
-    
+    public Map<String, Object> getDashboardSummary() {
+        Map<String, Object> summary = new HashMap<>();
+        summary.put("totalApplications", 0);
+        summary.put("highRiskCount", 0);
+        summary.put("mediumRiskCount", 0);
+        summary.put("lowRiskCount", 0);
+        return summary;
+    }
 }
