@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -8,7 +7,6 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { InputForm } from "@/components/ui/InputForm";
 import {
   BarChart3,
   Shield,
@@ -18,10 +16,9 @@ import {
   TrendingUp,
   Settings,
 } from "lucide-react";
+import { RiskBarChart } from "@/components/charts/RiskBarChart";
 
 export default function Dashboard() {
-  const [isFormOpen, setIsFormOpen] = useState(false);
-
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
@@ -202,21 +199,26 @@ export default function Dashboard() {
 
       {/* Main Content */}
       <main className="p-6">
-        <div className="relative inline-block">
-          <button
-            type="button"
-            onClick={() => setIsFormOpen(!isFormOpen)}
-            className="bg-black text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none"
-          >
-            {isFormOpen ? "Close Form" : "Open Form"}
-          </button>
-          {isFormOpen && (
-            <div className="absolute left-0 top-full mt-2 z-50 rounded-md border bg-popover p-4 shadow-md">
-              <InputForm />
-            </div>
-          )}
+        {/* Header Section */}
+        <div className="mb-6 flex items-start justify-between">
+          <div>
+            <h1 className="text-2xl font-bold">Credit Risk Dashboard</h1>
+            <p className="text-muted-foreground">Portfolio risk overview and analytics</p>
+          </div>
+          <button type="button" className="bg-black text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Enter data</button>
         </div>
-        {/* Your dashboard content here */}
+
+        {/* Charts Grid */}
+        <div className="grid grid-cols-4 gap-4">
+          {/* Risk Bar Chart - Top Left, ~1/4 screen */}
+          <div className="col-span-1">
+            <div className="rounded-lg border bg-card p-4">
+              <h3 className="text-sm font-medium mb-2">Risk Distribution</h3>
+              <RiskBarChart />
+            </div>
+          </div>
+        </div>
+
       </main>
     </div>
   );
