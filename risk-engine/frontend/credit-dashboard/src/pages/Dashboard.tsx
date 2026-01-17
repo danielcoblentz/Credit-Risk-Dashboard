@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -7,6 +8,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { InputForm } from "@/components/ui/InputForm";
 import {
   BarChart3,
   Shield,
@@ -18,6 +20,8 @@ import {
 } from "lucide-react";
 
 export default function Dashboard() {
+  const [isFormOpen, setIsFormOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
@@ -198,7 +202,20 @@ export default function Dashboard() {
 
       {/* Main Content */}
       <main className="p-6">
-        <h1 className="text-3xl font-bold">placeholder for right now</h1>
+        <div className="relative inline-block">
+          <button
+            type="button"
+            onClick={() => setIsFormOpen(!isFormOpen)}
+            className="bg-black text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none"
+          >
+            {isFormOpen ? "Close Form" : "Open Form"}
+          </button>
+          {isFormOpen && (
+            <div className="absolute left-0 top-full mt-2 z-50 rounded-md border bg-popover p-4 shadow-md">
+              <InputForm />
+            </div>
+          )}
+        </div>
         {/* Your dashboard content here */}
       </main>
     </div>
