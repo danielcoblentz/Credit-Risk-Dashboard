@@ -1,14 +1,17 @@
 package com.finance.risk;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.mock;
 
+import com.finance.risk.repository.LoanRepository;
 import com.finance.risk.service.RiskCalculatorService;
 
 import org.junit.jupiter.api.Test;
 
 public class RiskCalculatorServiceTest {
 
-    private final RiskCalculatorService service = new RiskCalculatorService();
+    private final LoanRepository loanRepository = mock(LoanRepository.class);
+    private final RiskCalculatorService service = new RiskCalculatorService(loanRepository);
 
     @Test
     public void testHighRiskThreshold() {
