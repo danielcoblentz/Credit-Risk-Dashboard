@@ -11,9 +11,7 @@ import {
 import {
   BarChart3,
   Shield,
-  Users,
   FileText,
-  AlertTriangle,
   TrendingUp,
   Settings,
   X,
@@ -156,28 +154,6 @@ export default function Dashboard() {
               </NavigationMenuContent>
             </NavigationMenuItem>
 
-            {/* Customers */}
-            <NavigationMenuItem>
-              <NavigationMenuLink
-                href="/customers"
-                className={navigationMenuTriggerStyle()}
-              >
-                <Users className="mr-2 h-4 w-4" />
-                Customers
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-
-            {/* Alerts */}
-            <NavigationMenuItem>
-              <NavigationMenuLink
-                href="/alerts"
-                className={navigationMenuTriggerStyle()}
-              >
-                <AlertTriangle className="mr-2 h-4 w-4" />
-                Alerts
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-
             {/* Reports */}
             <NavigationMenuItem>
               <NavigationMenuLink
@@ -186,6 +162,7 @@ export default function Dashboard() {
               >
                 <FileText className="mr-2 h-4 w-4" />
                 Reports
+                <span className="ml-2 text-xs text-muted-foreground">(In Progress)</span>
               </NavigationMenuLink>
             </NavigationMenuItem>
 
