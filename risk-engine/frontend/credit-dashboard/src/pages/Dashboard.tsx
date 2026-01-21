@@ -17,6 +17,9 @@ import {
   Settings,
 } from "lucide-react";
 import { RiskBarChart } from "@/components/charts/RiskBarChart";
+import PieChartWithCustomizedLabel from '@/components/charts/PieChartWithCustomizedLabel';
+import { CreditScoreDistributionChart } from "@/components/charts/CreditScoreDistributionChart";
+import { DefaultRateTrendChart } from "@/components/charts/DefaultRateTrendChart";
 
 export default function Dashboard() {
   return (
@@ -208,17 +211,35 @@ export default function Dashboard() {
           <button type="button" className="bg-black text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Enter data</button>
         </div>
 
-        {/* Charts Grid */}
         <div className="grid grid-cols-4 gap-4">
-          {/* Risk Bar Chart - Top Left, ~1/4 screen */}
           <div className="col-span-1">
             <div className="rounded-lg border bg-card p-4">
-              <h3 className="text-sm font-medium mb-2">Risk Distribution</h3>
+              <h3 className="text-sm font-medium mb-2">Risk Exposure</h3>
               <RiskBarChart />
             </div>
           </div>
-        </div>
 
+          <div className="col-span-1">
+            <div className="rounded-lg border bg-card p-4">
+              <h3 className="text-sm font-medium mb-2">Risk Mix</h3>
+              <PieChartWithCustomizedLabel />
+            </div>
+          </div>
+
+          <div className="col-span-1">
+            <div className="rounded-lg border bg-card p-4">
+              <h3 className="text-sm font-medium mb-2">Credit Score Distribution</h3>
+              <CreditScoreDistributionChart />
+            </div>
+          </div>
+
+          <div className="col-span-1">
+            <div className="rounded-lg border bg-card p-4">
+              <h3 className="text-sm font-medium mb-2">Default Rate Trend</h3>
+              <DefaultRateTrendChart />
+            </div>
+          </div>
+        </div>
       </main>
     </div>
   );
