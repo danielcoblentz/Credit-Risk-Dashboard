@@ -16,13 +16,9 @@ import { Separator } from "@/components/ui/separator";
 import {
   BarChart3,
   Shield,
-  Users,
   FileText,
-  AlertTriangle,
   TrendingUp,
   Settings,
-  Bell,
-  Lock,
   Palette,
   Database,
   User,
@@ -89,23 +85,10 @@ export default function SettingsPage() {
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <NavigationMenuLink href="/customers" className={navigationMenuTriggerStyle()}>
-                <Users className="mr-2 h-4 w-4" />
-                Customers
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-
-            <NavigationMenuItem>
-              <NavigationMenuLink href="/alerts" className={navigationMenuTriggerStyle()}>
-                <AlertTriangle className="mr-2 h-4 w-4" />
-                Alerts
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-
-            <NavigationMenuItem>
               <NavigationMenuLink href="/reports" className={navigationMenuTriggerStyle()}>
                 <FileText className="mr-2 h-4 w-4" />
                 Reports
+                <span className="ml-2 text-xs text-muted-foreground">(In Progress)</span>
               </NavigationMenuLink>
             </NavigationMenuItem>
 
@@ -127,18 +110,10 @@ export default function SettingsPage() {
         </div>
 
         <Tabs defaultValue="profile" className="w-full">
-          <TabsList className="grid w-full max-w-[600px] grid-cols-5">
+          <TabsList className="grid w-full max-w-[400px] grid-cols-3">
             <TabsTrigger value="profile" className="flex items-center gap-2">
               <User className="h-4 w-4" />
               <span className="hidden sm:inline">Profile</span>
-            </TabsTrigger>
-            <TabsTrigger value="notifications" className="flex items-center gap-2">
-              <Bell className="h-4 w-4" />
-              <span className="hidden sm:inline">Notifications</span>
-            </TabsTrigger>
-            <TabsTrigger value="security" className="flex items-center gap-2">
-              <Lock className="h-4 w-4" />
-              <span className="hidden sm:inline">Security</span>
             </TabsTrigger>
             <TabsTrigger value="appearance" className="flex items-center gap-2">
               <Palette className="h-4 w-4" />
@@ -179,97 +154,6 @@ export default function SettingsPage() {
                 <div className="space-y-2">
                   <Label htmlFor="role">Role</Label>
                   <Input id="role" placeholder="Senior Analyst" />
-                </div>
-              </CardContent>
-            </Card>
-          </TabsContent>
-
-          {/* Notifications Tab */}
-          <TabsContent value="notifications" className="mt-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>Notification Preferences</CardTitle>
-                <CardDescription>Configure how you receive alerts and updates</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="flex items-center justify-between">
-                  <div className="space-y-0.5">
-                    <Label>Email Notifications</Label>
-                    <p className="text-sm text-muted-foreground">Receive risk alerts via email</p>
-                  </div>
-                  <Switch />
-                </div>
-                <Separator />
-                <div className="flex items-center justify-between">
-                  <div className="space-y-0.5">
-                    <Label>High Risk Alerts</Label>
-                    <p className="text-sm text-muted-foreground">Immediate alerts for high-risk events</p>
-                  </div>
-                  <Switch defaultChecked />
-                </div>
-                <Separator />
-                <div className="flex items-center justify-between">
-                  <div className="space-y-0.5">
-                    <Label>Portfolio Updates</Label>
-                    <p className="text-sm text-muted-foreground">Daily portfolio performance summary</p>
-                  </div>
-                  <Switch defaultChecked />
-                </div>
-                <Separator />
-                <div className="flex items-center justify-between">
-                  <div className="space-y-0.5">
-                    <Label>Model Updates</Label>
-                    <p className="text-sm text-muted-foreground">Notifications when risk models are updated</p>
-                  </div>
-                  <Switch />
-                </div>
-                <Separator />
-                <div className="flex items-center justify-between">
-                  <div className="space-y-0.5">
-                    <Label>Weekly Reports</Label>
-                    <p className="text-sm text-muted-foreground">Receive weekly risk summary reports</p>
-                  </div>
-                  <Switch defaultChecked />
-                </div>
-              </CardContent>
-            </Card>
-          </TabsContent>
-
-          {/* Security Tab */}
-          <TabsContent value="security" className="mt-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>Security Settings</CardTitle>
-                <CardDescription>Manage your password and security preferences</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="space-y-2">
-                  <Label htmlFor="currentPassword">Current Password</Label>
-                  <Input id="currentPassword" type="password" />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="newPassword">New Password</Label>
-                  <Input id="newPassword" type="password" />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="confirmPassword">Confirm New Password</Label>
-                  <Input id="confirmPassword" type="password" />
-                </div>
-                <Separator />
-                <div className="flex items-center justify-between">
-                  <div className="space-y-0.5">
-                    <Label>Two-Factor Authentication</Label>
-                    <p className="text-sm text-muted-foreground">Add an extra layer of security</p>
-                  </div>
-                  <Switch />
-                </div>
-                <Separator />
-                <div className="flex items-center justify-between">
-                  <div className="space-y-0.5">
-                    <Label>Session Timeout</Label>
-                    <p className="text-sm text-muted-foreground">Auto-logout after 30 minutes of inactivity</p>
-                  </div>
-                  <Switch defaultChecked />
                 </div>
               </CardContent>
             </Card>
