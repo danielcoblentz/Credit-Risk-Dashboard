@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -15,6 +16,7 @@ import {
   AlertTriangle,
   TrendingUp,
   Settings,
+  X,
 } from "lucide-react";
 import { RiskBarChart } from "@/components/charts/RiskBarChart";
 import PieChartWithCustomizedLabel from '@/components/charts/PieChartWithCustomizedLabel';
@@ -22,6 +24,7 @@ import { CreditScoreDistributionChart } from "@/components/charts/CreditScoreDis
 import { DefaultRateTrendChart } from "@/components/charts/DefaultRateTrendChart";
 
 export default function Dashboard() {
+  const [showForm, setShowForm] = useState(false);
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
@@ -208,8 +211,99 @@ export default function Dashboard() {
             <h1 className="text-2xl font-bold">Credit Risk Dashboard</h1>
             <p className="text-muted-foreground">Portfolio risk overview and analytics</p>
           </div>
-          <button type="button" className="bg-black text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Enter data</button>
+          <button
+            type="button"
+            className="bg-black text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none"
+            onClick={() => setShowForm(!showForm)}
+          >
+            {showForm ? "Close form" : "Enter data"}
+          </button>
         </div>
+
+        {showForm && (
+          <div className="mb-6 rounded-lg border bg-card p-6">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-lg font-semibold">Enter Risk Data</h2>
+              <button
+                type="button"
+                onClick={() => setShowForm(false)}
+                className="text-muted-foreground hover:text-foreground"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            <form className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium mb-1">Borrower Name</label>
+                <input
+                  type="text"
+                  className="w-full rounded-md border px-3 py-2 text-sm"
+                  placeholder="Enter borrower name"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">Credit Score</label>
+                <input
+                  type="number"
+                  className="w-full rounded-md border px-3 py-2 text-sm"
+                  placeholder="300-850"
+                  min="300"
+                  max="850"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">Loan Amount ($)</label>
+                <input
+                  type="number"
+                  className="w-full rounded-md border px-3 py-2 text-sm"
+                  placeholder="Enter loan amount"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">Debt-to-Income Ratio (%)</label>
+                <input
+                  type="number"
+                  className="w-full rounded-md border px-3 py-2 text-sm"
+                  placeholder="0-100"
+                  min="0"
+                  max="100"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">Loan Term (months)</label>
+                <input
+                  type="number"
+                  className="w-full rounded-md border px-3 py-2 text-sm"
+                  placeholder="e.g., 12, 24, 36"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">Risk Category</label>
+                <select className="w-full rounded-md border px-3 py-2 text-sm">
+                  <option value="">Select risk level</option>
+                  <option value="low">Low Risk</option>
+                  <option value="medium">Medium Risk</option>
+                  <option value="high">High Risk</option>
+                </select>
+              </div>
+              <div className="col-span-2 flex justify-end gap-2 mt-2">
+                <button
+                  type="button"
+                  onClick={() => setShowForm(false)}
+                  className="px-4 py-2 text-sm border rounded-md hover:bg-accent"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="px-4 py-2 text-sm bg-black text-white rounded-md hover:bg-gray-800"
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+        )}
 
         <div className="grid grid-cols-4 gap-4">
           <div className="col-span-1">
