@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@recharts/devtools": "^0.0.7"
+  }
+}
