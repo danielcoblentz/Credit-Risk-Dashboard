@@ -44,7 +44,7 @@ export default function SettingsPage() {
                 Risk Analysis
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
+                <ul className="grid w-[300px] gap-3 p-4">
                   <li>
                     <NavigationMenuLink asChild>
                       <a href="/risk/credit-score" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
