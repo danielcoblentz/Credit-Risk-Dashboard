@@ -6,6 +6,7 @@ import {
   type ChartConfig,
 } from "@/components/ui/chart"
 
+// remoev this later and replace w real info
 const chartData = [
   { month: "January", excellent: 120, good: 180, fair: 95, poor: 45 },
   { month: "February", excellent: 135, good: 175, fair: 88, poor: 42 },
